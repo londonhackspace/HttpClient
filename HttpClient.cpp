@@ -43,6 +43,7 @@ void HttpClient::resetState()
   iBodyLengthConsumed = 0;
   iContentLengthPtr = 0;
   iHttpResponseTimeout = kHttpResponseTimeout;
+  iHttpWaitForDataDelay = kHttpWaitForDataDelay;
 }
 
 void HttpClient::stop()
@@ -367,7 +368,7 @@ int HttpClient::responseStatusCode()
             {
                 // We haven't got any data, so let's pause to allow some to
                 // arrive
-                delay(kHttpWaitForDataDelay);
+                delay(iHttpWaitForDataDelay);
             }
         }
         if ( (c == '\n') && (iStatusCode < 200) )
@@ -416,7 +417,7 @@ int HttpClient::skipResponseHeaders()
         {
             // We haven't got any data, so let's pause to allow some to
             // arrive
-            delay(kHttpWaitForDataDelay);
+            delay(iHttpWaitForDataDelay);
         }
     }
     if (endOfHeadersReached())
