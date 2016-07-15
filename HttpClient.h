@@ -381,6 +381,9 @@ public:
     virtual operator bool() { return bool(iClient); };
     virtual uint32_t httpResponseTimeout() { return iHttpResponseTimeout; };
     virtual void setHttpResponseTimeout(uint32_t timeout) { iHttpResponseTimeout = timeout; };
+
+    virtual int httpWaitForDataDelay() { return iHttpWaitForDataDelay; };
+    virtual int setHttpWaitForDataDelay(int ms) { iHttpWaitForDataDelay = ms; };
 protected:
     /** Reset internal state data back to the "just initialised" state
     */
@@ -444,6 +447,7 @@ protected:
     IPAddress iProxyAddress;
     uint16_t iProxyPort;
     uint32_t iHttpResponseTimeout;
+    int iHttpWaitForDataDelay;
 };
 
 #endif
