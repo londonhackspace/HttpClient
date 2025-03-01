@@ -383,7 +383,7 @@ public:
     virtual void setHttpResponseTimeout(uint32_t timeout) { iHttpResponseTimeout = timeout; };
 
     virtual int httpWaitForDataDelay() { return iHttpWaitForDataDelay; };
-    virtual int setHttpWaitForDataDelay(int ms) { iHttpWaitForDataDelay = ms; };
+    virtual void setHttpWaitForDataDelay(int ms) { iHttpWaitForDataDelay = ms; };
 protected:
     /** Reset internal state data back to the "just initialised" state
     */
